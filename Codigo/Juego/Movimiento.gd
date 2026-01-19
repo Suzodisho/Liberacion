@@ -1,11 +1,11 @@
 extends Estado
 
-const VEL = 50
+const VEL = 20
 const SAL:float = 500.0
 
 
 @onready var jugador:CharacterBody3D = owner
-@onready var camara:Camera3D = $"../../SpringArm3D/Camara"
+@onready var camara:Camera3D = $"../../SpringArm3D/Camera3D"
 
 func entrar():
 	print("Estas moviendote")

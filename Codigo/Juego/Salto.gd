@@ -1,7 +1,7 @@
 extends Estado
 
 @onready var jugador:CharacterBody3D = owner
-@onready var camara:Camera3D = $"../../SpringArm3D/Camara"
+@onready var camara:Camera3D = $"../../SpringArm3D/Camera3D"
 var VEL = 20
 
 func entrar():
