@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwp82x5xnjils"]
+
+[ext_resource type="PackedScene" uid="uid://bpuw3jhb6morb" path="res://Escenas/Jugador.tscn" id="1_22vo8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_umhm4"]
+
+[node name="MovimientoEInteraccionnes" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(31.132282, 0, 0, 0, 0.17639548, 0, 0, 0, 29.56865, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_umhm4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.08753827, 0.99616116, 0, -0.99616116, -0.08753827, 0, 5.1556764, 0)
+
+[node name="Jugador" parent="." instance=ExtResource("1_22vo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4857025, 0)
