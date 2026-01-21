@@ -1,15 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpuw3jhb6morb"]
 
 [ext_resource type="Script" uid="uid://cu1whfrid3ovs" path="res://Codigo/Clases/Maquina De Estados.gd" id="1_pqx3y"]
-[ext_resource type="Script" uid="uid://cq075paynv6eo" path="res://Codigo/Juego/Movimiento.gd" id="2_5jvw8"]
-[ext_resource type="Script" uid="uid://d0retxkrtxjqq" path="res://Codigo/Juego/Salto.gd" id="3_5jvw8"]
-[ext_resource type="Script" uid="uid://culu1wet4ss1r" path="res://Codigo/Juego/Rotacion.gd" id="4_8g85c"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y15tc"]
+[ext_resource type="Script" uid="uid://cq075paynv6eo" path="res://Codigo/Juego/Jugador/Movimiento.gd" id="2_5jvw8"]
+[ext_resource type="Script" uid="uid://d0retxkrtxjqq" path="res://Codigo/Juego/Jugador/Salto.gd" id="3_5jvw8"]
+[ext_resource type="Script" uid="uid://fj268qmlm7o1" path="res://Codigo/Juego/Jugador/Reposo.gd" id="4_btktc"]
+[ext_resource type="PackedScene" uid="uid://bkst6odsg1sr2" path="res://Arte/M_Vael.tscn" id="5_muoba"]
+[ext_resource type="Script" uid="uid://cm51vo10xyhj7" path="res://Codigo/Juego/Jugador/Animaciones.gd" id="6_fwv5a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lg25c"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_pqx3y"]
+radius = 0.3100586
 
 [node name="Jugador" type="CharacterBody3D"]
 
@@ -26,19 +25,14 @@ metadata/_custom_type_script = "uid://dviuq6s01cyj0"
 script = ExtResource("3_5jvw8")
 metadata/_custom_type_script = "uid://dviuq6s01cyj0"
 
-[node name="R_Cuerpo" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_y15tc")
+[node name="Reposo" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("4_btktc")
+metadata/_custom_type_script = "uid://dviuq6s01cyj0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2884876, 0)
 shape = SubResource("CapsuleShape3D_lg25c")
 
-[node name="R_Ojos" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6621238, 0, 0, 0, 0.27776206, 0, 0, 0, 0.26052058, 0, 0.515167, -0.3863216)
-mesh = SubResource("BoxMesh_pqx3y")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62290096, 0)
-spring_length = 3.0
-script = ExtResource("4_8g85c")
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+[node name="Vael" parent="." instance=ExtResource("5_muoba")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("6_fwv5a")

@@ -9,6 +9,7 @@ const SAL:float = 500.0
 
 func entrar():
 	print("Estas moviendote")
+	animacion.emit("Correr")
 	
 func actualizar_fisicas(delta:float):
 	
@@ -18,6 +19,10 @@ func actualizar_fisicas(delta:float):
 		jugador.velocity.y = 0
 	
 	var direccion_input:Vector2 = Input.get_vector("Izquierda", "Derecha", "Adelante","Atras")
+	
+	if direccion_input == Vector2.ZERO:
+		cambio.emit("Reposo")
+	
 	
 	var camara_z = camara.global_transform.basis.z
 	var camara_x = camara.global_transform.basis.x

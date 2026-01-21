@@ -5,6 +5,8 @@ var control = owner
 
 @warning_ignore("unused_signal")
 signal cambio(nombre)
+@warning_ignore("unused_signal")
+signal animacion(nombre)
 
 func entrar():
 	pass
