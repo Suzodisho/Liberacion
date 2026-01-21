@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://batp6sp40k15c"]
+
+[ext_resource type="Script" uid="uid://0qbf4aiuj8qf" path="res://Codigo/Juego/Camara/Camara.gd" id="1_350sr"]
+[ext_resource type="Script" uid="uid://cu1whfrid3ovs" path="res://Codigo/Clases/Maquina De Estados.gd" id="1_liwlu"]
+[ext_resource type="Script" uid="uid://bcw1ga7biq6ax" path="res://Codigo/Juego/Camara/Siguendo.gd" id="2_350sr"]
+
+[node name="OrbitaCam" type="Node3D"]
+script = ExtResource("1_350sr")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="MaquinaDeEstados" type="Node" parent="." node_paths=PackedStringArray("estado_inicial")]
+script = ExtResource("1_liwlu")
+estado_inicial = NodePath("Seguidor")
+metadata/_custom_type_script = "uid://cu1whfrid3ovs"
+
+[node name="Seguidor" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("2_350sr")
+metadata/_custom_type_script = "uid://dviuq6s01cyj0"
